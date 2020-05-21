@@ -10,7 +10,6 @@ const passportLocal = require('./config/passport-local-strategy');
 app.use(express.urlencoded());
 app.use(expressLayouts);
 app.use(cookieParser());
-
 app.use(express.static('./assets'));
 app.set('view engine','ejs');
 app.set('views','./views');
