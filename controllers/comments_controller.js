@@ -18,7 +18,7 @@ module.exports.create = function(req,res){
             return;
         }
         else{
-            console.log("Error in fetching the post in Comment",err);
+            console.log("Error in fetching the post in Comment");
             return;
         }
     });
