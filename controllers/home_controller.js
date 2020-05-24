@@ -1,5 +1,5 @@
 const Post = require('../models/post');
-
+const User = require('../models/users');
 module.exports.home = function(req,res){
     Post.find({}).populate('user').populate({
         path : 'comments',
@@ -8,9 +8,12 @@ module.exports.home = function(req,res){
         }
     }).exec(
         function(err,posts){
-            return res.render('home',{
-                title : "Codeial home",
-                posts : posts
+            User.find({},function(err,users){
+                return res.render('home',{
+                    title : "Codeial home",
+                    posts : posts,
+                    all_users : users
+                });
             });
         }
     );
