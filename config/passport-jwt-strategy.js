@@ -2,10 +2,11 @@ const passpost = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 const User = require('../models/users');
+const env = require('./environment');
 
 let opts = {
     jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken,
-    secretOrKey : 'codeial'
+    secretOrKey : env.Google_JWT_Secret
 }
 
 passpost.use(new JwtStrategy(opts,function(jwtPayLoad,done){
